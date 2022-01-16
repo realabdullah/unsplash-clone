@@ -85,13 +85,11 @@ export default {
 
 <style scoped>
 .photos-container {
-  max-width: 960px;
-  margin-right: auto;
-  margin-left: auto;
   position: absolute;
   top: 140px;
   left: 0;
   right: 0;
+  margin-inline: 145px;
 }
 
 .photos-container ul {
