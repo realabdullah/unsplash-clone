@@ -86,7 +86,7 @@ export default {
 <style scoped>
 .photos-container {
   position: absolute;
-  top: 140px;
+  top: 160px;
   left: 0;
   right: 0;
   margin-inline: 145px;
@@ -128,6 +128,12 @@ export default {
 @media only screen and (min-width: 1024px) {
   .photos-container ul {
     columns: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .photos-container {
+    margin-inline: 25px;
   }
 }
 

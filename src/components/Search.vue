@@ -51,4 +51,10 @@ export default {
     top: 17px;
     color: var(--darkgray);
   }
+
+  @media (max-width: 768px) {
+    .search {
+      padding-inline: 2rem;
+    }
+  }
 </style>
