@@ -119,19 +119,19 @@ export default {
   color: var(--white);
 }
 
-@media only screen and (max-width: 1023px) and (min-width: 768px) {
+@media (max-width: 1023px) and (min-width: 768px) {
   .photos-container ul {
     columns: 2;
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .photos-container ul {
     columns: 3;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 527px) {
   .photos-container {
     margin-inline: 25px;
   }
