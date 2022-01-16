@@ -67,6 +67,9 @@ export default {
 
 <style scoped>
 .photos-container {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
   position: absolute;
   top: 140px;
   left: 0;
@@ -74,16 +77,23 @@ export default {
 }
 
 .photos-container ul {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  margin: 15px;
+  justify-content: center; */
+  columns: 1;
+  column-gap: 10px;
+}
+
+.photos-container .card {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
 }
 
 .photos-container .card .image {
-  width: 200px;
-  margin: 10px;
+  /* width: 200px;
+  margin: 10px; */
   position: relative;
 }
 
@@ -98,4 +108,17 @@ export default {
   left: 20px;
   color: var(--white);
 }
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .photos-container ul {
+    columns: 2;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .photos-container ul {
+    columns: 3;
+  }
+}
+
 </style>
