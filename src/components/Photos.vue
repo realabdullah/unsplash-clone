@@ -69,6 +69,8 @@ export default {
 .photos-container {
   position: absolute;
   top: 140px;
+  left: 0;
+  right: 0;
 }
 
 .photos-container ul {
@@ -88,5 +90,12 @@ export default {
 .photos-container .card img {
   width: 100%;
   border-radius: 7px;
+}
+
+.photos-container .card .image .author {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  color: var(--white);
 }
 </style>
