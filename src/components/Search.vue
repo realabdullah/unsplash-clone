@@ -1,7 +1,9 @@
 <template>
-  <div class="search-bar">
-    <input type="search" name="search" placeholder="Search for a photo">
-    <i class="fas fa-search"></i>
+  <div class="search">
+    <div class="search-bar">
+      <input type="search" name="search" placeholder="Search for a photo">
+      <i class="fas fa-search"></i>
+    </div>
   </div>
 </template>
 
@@ -12,21 +14,26 @@ export default {
 </script>
 
 <style scoped>
-  .search-bar {
+  .search {
     background: var(--lightgray);
     width: 100%;
-    padding-block: 3rem;
+    padding-block: 4.5rem;
     padding-inline: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* position: relative; */
+  }
+
+  .search-bar {
+    width: 100%;
+    position: relative;
   }
 
   .search-bar input {
     width: inherit;
     border-style: none;
-    padding: 10px;
+    padding-block: 1rem;
+    padding-inline: 4rem;
     outline: none;
     border-radius: 5px;
     background-color: var(--white);
@@ -34,6 +41,14 @@ export default {
   }
 
   .search-bar input::placeholder {
+    color: var(--darkgray);
+  }
+
+  .search-bar .fas {
+    font-size: 15px;
+    position: absolute;
+    left: 15px;
+    top: 17px;
     color: var(--darkgray);
   }
 </style>
