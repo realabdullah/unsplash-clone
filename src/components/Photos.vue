@@ -3,7 +3,34 @@
     <ul>
       <li class="card">
         <div class="image">
-          <img src="https://cdn.pixabay.com/photo/2021/12/21/03/54/street-6884533_960_720.jpg" alt="img">
+          <img src="https://picsum.photos/450/325?image=100" alt="img">
+          <div class="author">
+            <p>John Doe</p>
+            <span>Lagos, Nigeria</span>
+          </div>
+        </div>
+      </li>
+      <li class="card">
+        <div class="image">
+          <img src="https://picsum.photos/450/450?image=200" alt="img">
+          <div class="author">
+            <p>John Doe</p>
+            <span>Lagos, Nigeria</span>
+          </div>
+        </div>
+      </li>
+      <li class="card">
+        <div class="image">
+          <img src="https://picsum.photos/450/280?image=300" alt="img">
+          <div class="author">
+            <p>John Doe</p>
+            <span>Lagos, Nigeria</span>
+          </div>
+        </div>
+      </li>
+      <li class="card">
+        <div class="image">
+          <img src="https://picsum.photos/450/540?image=400" alt="img">
           <div class="author">
             <p>John Doe</p>
             <span>Lagos, Nigeria</span>
@@ -21,7 +48,7 @@
       </li>
       <li class="card">
         <div class="image">
-          <img src="https://cdn.pixabay.com/photo/2021/12/21/03/54/street-6884533_960_720.jpg" alt="img">
+          <img src="https://picsum.photos/450/300?image=600" alt="img">
           <div class="author">
             <p>John Doe</p>
             <span>Lagos, Nigeria</span>
@@ -30,7 +57,7 @@
       </li>
       <li class="card">
         <div class="image">
-          <img src="https://cdn.pixabay.com/photo/2021/12/21/03/54/street-6884533_960_720.jpg" alt="img">
+          <img src="https://picsum.photos/450/300?image=600" alt="img">
           <div class="author">
             <p>John Doe</p>
             <span>Lagos, Nigeria</span>
@@ -39,16 +66,7 @@
       </li>
       <li class="card">
         <div class="image">
-          <img src="https://cdn.pixabay.com/photo/2021/12/21/03/54/street-6884533_960_720.jpg" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://cdn.pixabay.com/photo/2021/12/21/03/54/street-6884533_960_720.jpg" alt="img">
+          <img src="https://picsum.photos/450/300?image=600" alt="img">
           <div class="author">
             <p>John Doe</p>
             <span>Lagos, Nigeria</span>
@@ -77,10 +95,6 @@ export default {
 }
 
 .photos-container ul {
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center; */
   columns: 1;
   column-gap: 10px;
 }
@@ -92,8 +106,6 @@ export default {
 }
 
 .photos-container .card .image {
-  /* width: 200px;
-  margin: 10px; */
   position: relative;
 }
 
