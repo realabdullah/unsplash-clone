@@ -36,6 +36,11 @@ export default {
 </script>
 
 <style scoped>
+.imgs-container{
+  position: absolute;
+  top: 140px;
+}
+
 .imgs-container ul {
   display: flex;
   flex-wrap: wrap;

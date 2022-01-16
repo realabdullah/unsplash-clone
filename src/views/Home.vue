@@ -17,3 +17,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.home {
+  position: relative;
+}
+</style>
