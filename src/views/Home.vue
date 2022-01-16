@@ -1,19 +1,19 @@
 <template>
   <div class="home">
     <Search />
-    <Photos />
+    <PhotosLoader />
   </div>
 </template>
 
 <script>
 import Search from '@/components/Search.vue'
-import Photos from '@/components/Photos.vue'
+import PhotosLoader from '@/components/PhotosLoader.vue'
 
 export default {
   name: 'Home',
   components: {
     Search,
-    Photos
+    PhotosLoader
   }
 }
 </script>
