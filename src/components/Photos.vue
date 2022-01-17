@@ -40,12 +40,12 @@ export default {
     }
 
     const getImages = async () => {
-      url.value = 'https://api.unsplash.com/photos/random/?count=7&client_id='
+      url.value = 'https://api.unsplash.com/search/photos?count=7&query=africa&client_id='
       finalUrl.value = url.value + process.env.VUE_APP_ACCESS_KEY
       try {
         const response = await axios.get(finalUrl.value)
-        images.value = response.data
-        // console.log(images.value)
+        images.value = response.data.results
+        console.log(images.value)
       } catch (error) {
         console.log(error)
       }
