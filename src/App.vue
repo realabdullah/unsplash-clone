@@ -6,6 +6,7 @@
 :root {
   --gray: #a7aebc;
   --lightgray: #dde2e9;
+  --slategray: #3a3d42;
   --darkgray: #999393;
   --lavender: #e7e9ed;
   --white: #ffffff;
