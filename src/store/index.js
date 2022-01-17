@@ -2,14 +2,9 @@ import { createStore } from 'vuex'
 import { ref } from 'vue'
 import axios from 'axios'
 
-const url = ref()
-const finalUrl = ref()
-
-url.value = 'https://api.unsplash.com/search/photos?count=7&query=africa&client_id='
-finalUrl.value = url.value + process.env.VUE_APP_ACCESS_KEY
-
 export default createStore({
   state: {
+    searchQuery: '',
     images: []
   },
   mutations: {
@@ -18,7 +13,11 @@ export default createStore({
     }
   },
   actions: {
-    getImages({ commit }) {
+    getImages({ commit }, searchQuery) {
+      const url = ref()
+      const finalUrl = ref()
+      url.value = `https://api.unsplash.com/search/photos?count=7&query=${searchQuery}&client_id=`
+      finalUrl.value = url.value + process.env.VUE_APP_ACCESS_KEY
       axios.get(finalUrl.value)
       .then(response => {
         commit('SET_IMAGES', response.data.results)

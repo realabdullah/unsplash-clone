@@ -1,14 +1,30 @@
 <template>
   <div class="search">
     <div class="search-bar">
-      <input type="search" name="search" placeholder="Search for a photo">
+      <input v-model="searchQuery" @keyup.enter="searchPhoto" type="search" name="search" placeholder="Search for a photo">
       <i class="fas fa-search"></i>
     </div>
   </div>
 </template>
 
 <script>
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
+
 export default {
+  setup() {
+    const searchQuery = ref('')
+    const store = useStore()
+
+    const searchPhoto = async () => {
+      store.dispatch('getImages', searchQuery.value)
+    }
+
+    return {
+      searchQuery,
+      searchPhoto
+    }
+  }
 
 }
 </script>

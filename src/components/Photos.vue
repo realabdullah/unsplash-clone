@@ -32,6 +32,7 @@ export default {
   async setup() {
     const isOpen = ref(false)
     const singleImg = ref()
+    const searchQuery = ref('africa')
 
     const store = useStore()
 
@@ -45,7 +46,7 @@ export default {
     }
 
     onBeforeMount(async () => {
-      store.dispatch('getImages')
+      store.dispatch('getImages', searchQuery.value)
     })
 
     await new Promise(resolve => setTimeout(resolve, 3000))
