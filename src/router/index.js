@@ -7,11 +7,11 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  {
-    path: '/photo-modal/:id',
-    name: 'Photo Modal',
-    component: () => import(/* webpackChunkName: "Photo Midal" */ '../views/PhotoModal.vue')
-  }
+  // {
+  //   path: '/photo-modal/:id',
+  //   name: 'Photo Modal',
+  //   component: () => import(/* webpackChunkName: "Photo Midal" */ '../views/PhotoModal.vue')
+  // }
 ]
 
 const router = createRouter({

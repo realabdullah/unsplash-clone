@@ -1,6 +1,6 @@
 <template>
-  <div class="photo-modal">
-    <span @click="closeModal" class="close">&times;</span>
+  <div v-if="isOpen" class="photo-modal">
+    <span @click="openModal" class="close">&times;</span>
     <div class="modal">
       <img src="https://picsum.photos/450/300?image=600" alt="dummy">
       <div class="author-details">
@@ -12,19 +12,19 @@
 </template>
 
 <script>
-import { useRoute, useRouter } from 'vue-router'
+import { ref } from 'vue'
 
 export default {
   setup() {
-    const route = useRoute()
-    const router = useRouter()
+    const isOpen = ref(true)
 
-    const closeModal = () => {
-      router.push('/')
+    const openModal = () => {
+      isOpen.value = !isOpen.value
     }
 
     return {
-      closeModal
+      isOpen,
+      openModal
     }
   }
 
