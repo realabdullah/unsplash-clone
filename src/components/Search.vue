@@ -1,8 +1,14 @@
 <template>
   <div class="search">
-    <div class="search-bar">
+    <div v-if="!searchResult && !searching" class="search-bar">
       <input v-model="searchQuery" @keyup.enter="searchPhoto" type="search" name="search" placeholder="Search for a photo">
       <i class="fas fa-search"></i>
+    </div>
+    <div v-if="searching" class="searching">
+      <h1>Searching for <span>"{{searchQuery}}"</span></h1>
+    </div>
+    <div v-if="searchResult" class="searched">
+      <h1>Search Results for <span>"{{searchQuery}}"</span></h1>
     </div>
   </div>
 </template>
@@ -14,13 +20,25 @@ import { useStore } from 'vuex'
 export default {
   setup() {
     const searchQuery = ref('')
+    const searching = ref(false)
+    const searchResult = ref(false)
     const store = useStore()
 
     const searchPhoto = async () => {
-      store.dispatch('getImages', searchQuery.value)
+      try {
+        searching.value = true
+        await new Promise(resolve => setTimeout(resolve, 3000))
+        store.dispatch('getImages', searchQuery.value)
+        searching.value = false
+        searchResult.value = true
+      } catch (error) {
+        
+      }
     }
 
     return {
+      searching,
+      searchResult,
       searchQuery,
       searchPhoto
     }
