@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 ul, ol, li {
   list-style: none;
 }

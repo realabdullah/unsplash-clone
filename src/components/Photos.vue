@@ -100,9 +100,20 @@ export default {
 
 .photos-container .card .image .author {
   position: absolute;
-  bottom: 25px;
-  left: 20px;
+  bottom: 15px;
+  left: 15px;
   color: var(--white);
+}
+
+.author p {
+  margin-bottom: -9px;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.author span {
+  font-size: 0.625rem;
+  font-weight: 200;
 }
 
 @keyframes card {
@@ -158,6 +169,7 @@ export default {
 .author-details p {
   padding-bottom: 10px;
   font-size: 1rem;
+  font-weight: 400;
   color: var(--slategray);
 }
 
