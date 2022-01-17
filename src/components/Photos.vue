@@ -3,10 +3,12 @@
     <ul>
       <li @click="openModal(image)" v-for="image in images" class="card">
         <div class="image">
-          <img :src="image.urls.regular" alt="img">
+          <div class="img">
+            <img :src="image.urls.regular" alt="img">
+          </div>
           <div class="author">
             <p>{{ image.user.name }}</p>
-            <span>{{ image.user.location }}</span>
+            <span v-if="image.user.location">{{ image.user.location }}</span>
           </div>
         </div>
       </li>
@@ -93,10 +95,27 @@ export default {
   opacity: .8;
 }
 
+.img {
+  position: relative;
+}
+
+.img:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 96%;
+  width: 100%;
+  background-color: rgb(0 0 0 / 14%);
+  border-radius: 7px;
+}
+
 .photos-container .card img {
   width: 100%;
   border-radius: 7px;
 }
+
 
 .photos-container .card .image .author {
   position: absolute;
@@ -106,12 +125,12 @@ export default {
 }
 
 .author p {
-  margin-bottom: -9px;
   font-size: 0.7rem;
   font-weight: 400;
 }
 
 .author span {
+  margin-top: -9px;
   font-size: 0.625rem;
   font-weight: 200;
 }
