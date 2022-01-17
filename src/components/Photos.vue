@@ -1,89 +1,16 @@
 <template>
   <div class="photos-container">
     <ul>
-      <li @click="openModal" class="card">
+      <li v-for="image in images" class="card">
         <div class="image">
-          <img src="https://picsum.photos/450/325?image=100" alt="img">
+          <img :src="image.urls.full" alt="img">
           <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://picsum.photos/450/450?image=200" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://picsum.photos/450/280?image=300" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://picsum.photos/450/540?image=400" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://cdn.pixabay.com/photo/2021/12/21/03/54/street-6884533_960_720.jpg" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://picsum.photos/450/300?image=600" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://picsum.photos/450/300?image=600" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="image">
-          <img src="https://picsum.photos/450/300?image=600" alt="img">
-          <div class="author">
-            <p>John Doe</p>
-            <span>Lagos, Nigeria</span>
+            <p>{{ image.user.name }}</p>
+            <span>{{ image.user.location }}</span>
           </div>
         </div>
       </li>
     </ul>
-    <div v-if="isOpen" class="photo-modal">
-      <span @click="openModal" class="close">&times;</span>
-      <div class="modal">
-        <img src="https://picsum.photos/450/300?image=600" alt="dummy">
-        <div class="author-details">
-          <p>John Doe</p>
-          <span>Lagos, Nigeria</span>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -105,11 +32,10 @@ export default {
     const getImages = async () => {
       url.value = 'https://api.unsplash.com/photos/random/?count=7&client_id='
       finalUrl.value = url.value + process.env.VUE_APP_ACCESS_KEY
-      console.log(finalUrl)
       try {
         const response = await axios.get(finalUrl.value)
-        images.value = response
-        console.log(images.value)
+        images.value = response.data
+        // console.log(images.value)
       } catch (error) {
         console.log(error)
       }
@@ -121,7 +47,8 @@ export default {
 
     return {
       isOpen,
-      openModal
+      openModal,
+      images
     }
   }
 
