@@ -1,8 +1,14 @@
 <template>
   <div class="home">
     <Search />
-    <!-- <PhotosLoader /> -->
-    <Photos />
+    <Suspense>
+      <template #default>
+        <Photos />
+      </template>
+      <template #fallback>
+        <PhotosLoader />
+      </template>
+    </Suspense>
   </div>
 </template>
 
