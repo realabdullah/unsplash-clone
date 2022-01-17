@@ -247,12 +247,18 @@ export default {
   .photo-modal .modal img {
     width: 100%;
     padding-inline: 20px;
+    border-radius: 7px 7px 0 0;;
   }
 
   .author-details {
     width: -webkit-fill-available;
     width: -moz-fill-available;
     margin-inline: 20px;
+  }
+
+  .close {
+    top: 5px;
+    right: 15px;
   }
 }
 
