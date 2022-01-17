@@ -2,28 +2,23 @@
   <div class="photos-container">
     <ul>
       <li @click="openModal" v-for="image in images" class="card">
-        <div class="image">
+        <router-link :to="`/photo-modal/${image.id}`" class="image">
           <img :src="image.urls.regular" alt="img">
           <div class="author">
             <p>{{ image.user.name }}</p>
             <span>{{ image.user.location }}</span>
           </div>
-        </div>
+        </router-link>
       </li>
-      <PhotoModal v-if="isOpen" />
     </ul>
   </div>
 </template>
 
 <script>
-import PhotoModal from '@/components/PhotoModal.vue'
 import { ref, onBeforeMount } from 'vue'
 import axios from 'axios'
 
 export default {
-  components: {
-    PhotoModal
-  },
   async setup() {
     const isOpen = ref(false)
     const url = ref()
@@ -49,8 +44,6 @@ export default {
     onBeforeMount(async () => {
       await getImages()
     })
-
-    await new Promise(resolve => setTimeout(resolve, 3000))
 
     return {
       isOpen,
