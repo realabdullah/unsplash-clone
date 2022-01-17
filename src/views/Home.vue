@@ -18,7 +18,7 @@ import Search from '@/components/Search.vue'
 import PhotosLoader from '@/components/PhotosLoader.vue'
 const Photos = defineAsyncComponent(() =>
   import('@/components/Photos.vue')
-);
+)
 
 export default {
   name: 'Home',

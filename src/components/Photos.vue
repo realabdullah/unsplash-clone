@@ -141,6 +141,7 @@ export default {
     transform-origin: 50% 100%;
     opacity: 1;
   }
+
   100% {    
     transform: scale(1);
     transform-origin: 50% 100%;
@@ -217,14 +218,14 @@ export default {
   cursor: pointer;
 }
 
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
-}
-
 @keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
