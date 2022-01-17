@@ -5,6 +5,7 @@
         <div class="image">
           <div class="img">
             <img :src="image.urls.regular" alt="img">
+            <div class="overlay"></div>
           </div>
           <div class="author">
             <p>{{ image.user.name }}</p>
@@ -99,17 +100,25 @@ export default {
   position: relative;
 }
 
-.img:after {
-  display: block;
+.overlay {
+  position: absolute;
+  background-color: rgb(0 0 0 / 23%);           
+  top: 0;
+  left: 0;
+  bottom: 7px;
+  right: 0;
+  border-radius: 7px;
+}
+
+/* .img:after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  height: 96%;
+  height: 100%;
   width: 100%;
-  background-color: rgb(0 0 0 / 14%);
-  border-radius: 7px;
-}
+  background-color: rgb(0 0 0 / 18%);
+} */
 
 .photos-container .card img {
   width: 100%;
