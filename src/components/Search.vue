@@ -4,10 +4,10 @@
       <input v-model="searchQuery" @keyup.enter="searchPhoto" type="search" name="search" placeholder="Search for a photo">
       <i class="fas fa-search"></i>
     </div>
-    <div v-if="searching" class="searching">
+    <div v-if="searching" class="searchQ">
       <h1>Searching for <span>"{{searchQuery}}"</span></h1>
     </div>
-    <div v-if="searchResult" class="searched">
+    <div v-if="searchResult" class="searchQ">
       <h1>Search Results for <span>"{{searchQuery}}"</span></h1>
     </div>
   </div>
@@ -69,6 +69,7 @@ export default {
     border-radius: 5px;
     background-color: var(--white);
     color: var(--darkgray);
+    box-shadow: 0px 4px 6px var(--lightgray);
   }
 
   .search-bar input::placeholder {
@@ -81,6 +82,20 @@ export default {
     left: 15px;
     top: 17px;
     color: var(--darkgray);
+  }
+
+  .searchQ {
+    animation: fadeIn linear 2s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 
   h1 {
