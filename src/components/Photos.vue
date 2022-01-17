@@ -88,15 +88,36 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onBeforeMount } from 'vue'
+import axios from 'axios'
 
 export default {
   setup() {
     const isOpen = ref(false)
+    const url = ref()
+    const finalUrl = ref()
+    const images = ref()
 
     const openModal = () => {
       isOpen.value = !isOpen.value
     }
+
+    const getImages = async () => {
+      url.value = 'https://api.unsplash.com/photos/random/?count=7&client_id='
+      finalUrl.value = url.value + process.env.VUE_APP_ACCESS_KEY
+      console.log(finalUrl)
+      try {
+        const response = await axios.get(finalUrl.value)
+        images.value = response
+        console.log(images.value)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    onBeforeMount(() => {
+      getImages()
+    })
 
     return {
       isOpen,
