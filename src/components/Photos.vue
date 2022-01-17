@@ -48,6 +48,8 @@ export default {
       store.dispatch('getImages')
     })
 
+    await new Promise(resolve => setTimeout(resolve, 3000))
+
     return {
       singleImg,
       isOpen,
