@@ -69,7 +69,7 @@ export default {
     border-radius: 5px;
     background-color: var(--white);
     color: var(--darkgray);
-    box-shadow: 0px 4px 6px var(--lightgray);
+    box-shadow: 5px 10px 36px -6px rgba(0,0,0,0.1);
   }
 
   .search-bar input::placeholder {
