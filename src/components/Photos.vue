@@ -125,6 +125,7 @@ export default {
   display: inline-block;
   vertical-align: top;
   margin-bottom: 10px;
+  animation: card 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .photos-container .card .image {
@@ -148,6 +149,20 @@ export default {
   left: 20px;
   color: var(--white);
 }
+
+@keyframes card {
+  0% {
+    transform: scale(0);
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+  100% {    
+    transform: scale(1);
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+}
+
 
 .photo-modal {
   position: fixed;
