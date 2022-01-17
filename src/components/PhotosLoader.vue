@@ -29,12 +29,6 @@
   </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style scoped>
 .imgs-container{
   position: absolute;
