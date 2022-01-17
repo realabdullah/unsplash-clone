@@ -5,7 +5,7 @@
       <i class="fas fa-search"></i>
     </div>
     <div v-if="searching" class="searchQ">
-      <h1>Searching for <span>"{{searchQuery}}"</span></h1>
+      <h1>Searching for  <span>  &#8220;{{searchQuery}}&#8221;</span></h1>
     </div>
     <div v-if="searchResult" class="searchQ">
       <h1>Search Results for <span>"{{searchQuery}}"</span></h1>
@@ -99,6 +99,8 @@ export default {
   }
 
   h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
     color: var(--slategray);
   }
 
@@ -109,6 +111,10 @@ export default {
   @media (max-width: 527px) {
     .search {
       padding-inline: 2rem;
+    }
+
+    h1 {
+      font-size: 1.675rem;
     }
   }
 </style>
