@@ -1,7 +1,7 @@
 <template>
   <div class="photos-container">
     <ul>
-      <li v-for="image in images" class="card">
+      <li @click="openModal" v-for="image in images" class="card">
         <div class="image">
           <img :src="image.urls.full" alt="img">
           <div class="author">
@@ -11,6 +11,16 @@
         </div>
       </li>
     </ul>
+    <div v-if="isOpen" class="photo-modal">
+      <span @click="openModal" class="close">&times;</span>
+      <div class="modal">
+        <img src="https://picsum.photos/450/300?image=600" alt="dummy">
+        <div class="author-details">
+          <p>{{ this.image.user.name }}</p>
+          <span>Lagos, Nigeria</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,8 +51,8 @@ export default {
       }
     }
 
-    onBeforeMount(() => {
-      getImages()
+    onBeforeMount(async () => {
+      await getImages()
     })
 
     return {
