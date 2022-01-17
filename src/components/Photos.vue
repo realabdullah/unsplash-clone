@@ -110,16 +110,6 @@ export default {
   border-radius: 7px;
 }
 
-/* .img:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgb(0 0 0 / 18%);
-} */
-
 .photos-container .card img {
   width: 100%;
   border-radius: 7px;

@@ -9,6 +9,7 @@
     </div>
     <div v-if="searchResult" class="searchQ">
       <h1>Search Results for <span>"{{searchQuery}}"</span></h1>
+      <i @click="search" class="fas fa-search"></i>
     </div>
   </div>
 </template>
@@ -36,7 +37,12 @@ export default {
       }
     }
 
+    const search = () => {
+      searchResult.value = !searchResult.value
+    }
+
     return {
+      search,
       searching,
       searchResult,
       searchQuery,
@@ -70,6 +76,7 @@ export default {
     background-color: var(--white);
     color: var(--darkgray);
     box-shadow: 5px 10px 36px -6px rgba(0,0,0,0.1);
+    animation: fadeIn linear 1s;
   }
 
   .search-bar input::placeholder {
@@ -86,6 +93,19 @@ export default {
 
   .searchQ {
     animation: fadeIn linear 2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .searchQ .fas {
+    color: var(--slategray);
+    font-size: 1.875rem;
+    cursor: pointer;
+  }
+
+  .searchQ .fas:hover {
+    color: var(--darkgray);
   }
 
   @keyframes fadeIn {
@@ -115,6 +135,11 @@ export default {
 
     h1 {
       font-size: 1.675rem;
+    }
+
+    .searchQ .fas {
+      font-size: 1.675rem;
+      color: var(--slategray);
     }
   }
 </style>
