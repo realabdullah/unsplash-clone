@@ -53,9 +53,6 @@ export default {
     width: 100%;
     padding-block: 4.5rem;
     padding-inline: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .search-bar {
@@ -83,6 +80,14 @@ export default {
     position: absolute;
     left: 15px;
     top: 17px;
+    color: var(--darkgray);
+  }
+
+  h1 {
+    color: var(--slategray);
+  }
+
+  span {
     color: var(--darkgray);
   }
 
