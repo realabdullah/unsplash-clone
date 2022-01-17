@@ -1,7 +1,7 @@
 <template>
   <div class="photos-container">
     <ul>
-      <li class="card">
+      <li @click="openModal" class="card">
         <div class="image">
           <img src="https://picsum.photos/450/325?image=100" alt="img">
           <div class="author">
@@ -74,8 +74,8 @@
         </div>
       </li>
     </ul>
-    <div class="photo-modal">
-      <span class="close">&times;</span>
+    <div v-if="isOpen" class="photo-modal">
+      <span @click="openModal" class="close">&times;</span>
       <div class="modal">
         <img src="https://picsum.photos/450/300?image=600" alt="dummy">
         <div class="author-details">
@@ -92,7 +92,16 @@ import { ref } from 'vue'
 
 export default {
   setup() {
+    const isOpen = ref(false)
 
+    const openModal = () => {
+      isOpen.value = !isOpen.value
+    }
+
+    return {
+      isOpen,
+      openModal
+    }
   }
 
 }
@@ -141,7 +150,6 @@ export default {
 }
 
 .photo-modal {
-  /* display: none; */
   position: fixed;
   z-index: 1;
   padding-block: 50px;
@@ -172,7 +180,6 @@ export default {
 .author-details {
   border-radius: 0 0 7px 7px;
   margin: auto;
-  /* display: block; */
   width: 80%;
   max-width: 700px;
   padding: 1.5rem;
@@ -190,7 +197,8 @@ export default {
   color: var(--darkgray);
 }
 
-.photo-modal .modal img {
+.photo-modal .modal img,
+.author-details {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
