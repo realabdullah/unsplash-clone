@@ -25,27 +25,19 @@
 </template>
 
 <script>
-import { ref, onBeforeMount } from 'vue'
-import axios from 'axios'
+import { ref, onBeforeMount, computed } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
   async setup() {
     const isOpen = ref(false)
-    const url = ref()
-    const finalUrl = ref()
-    const images = ref()
     const singleImg = ref()
 
-    const getImages = async () => {
-      url.value = 'https://api.unsplash.com/search/photos?count=7&query=africa&client_id='
-      finalUrl.value = url.value + process.env.VUE_APP_ACCESS_KEY
-      try {
-        const response = await axios.get(finalUrl.value)
-        images.value = response.data.results
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    const store = useStore()
+
+    const images = computed(() => {
+      return store.state.images
+    })
 
     const openModal = (imgObj) => {
       isOpen.value = !isOpen.value
@@ -53,7 +45,7 @@ export default {
     }
 
     onBeforeMount(async () => {
-      await getImages()
+      store.dispatch('getImages')
     })
 
     return {
